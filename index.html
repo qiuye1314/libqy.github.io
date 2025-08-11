@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PUBG BETA 监控工具</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: #f5f5f5;
+        }
+        h1 { 
+            color: #333; 
+            text-align: center;
+        }
+        .button-group { 
+            text-align: center; 
+            margin: 20px 0;
+        }
+        button { 
+            padding: 12px 24px; 
+            margin: 0 10px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            background-color: #4CAF50; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            transition: background-color 0.3s;
+        }
+        button:hover { 
+            background-color: #45a049; 
+        }
+        #output { 
+            white-space: pre; 
+            margin-top: 20px; 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            height: 400px; 
+            overflow-y: auto; 
+            background: white; 
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>PUBG Mobile BETA 版本监控</h1>
+    <div class="button-group">
+        <button onclick="runAction('test')">测试链接提取</button>
+        <button onclick="runAction('check')">检查版本更新</button>
+    </div>
+    <div id="output" class="loading">点击上方按钮开始操作...</div>
+
+    <script>
+        // 替换为你的 Render 后端域名（已填入你的服务地址）
+        const BACKEND_URL = "https://pubg-beta-monitor.onrender.com";  
+
+        function runAction(action) {
+            const outputDiv = document.getElementById('output');
+            outputDiv.textContent = "执行中...请稍候...";
+
+            fetch(`${BACKEND_URL}/${action}`, { method: 'POST' })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`请求失败: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    outputDiv.textContent = data.output;
+                })
+                .catch(error => {
+                    outputDiv.textContent = `错误: ${error.message}\n请检查后端服务是否正常运行`;
+                });
+        }
+    </script>
+</body>
+</html>
