@@ -1,85 +1,85 @@
-<!DOCTYPE html>
+<DOCTYPE超文本标记语言（html）>
 <html>
 <head>
-    <title>PUBG BETA 监控工具</title>
-    <style>
+    <title>PUBG BETA 监控工具</标题>
+    <风格>
         body { 
             font-family: Arial, sans-serif; 
-            max-width: 1000px; 
-            margin: 0 auto; 
-            padding: 20px; 
+            max-width: 1000小卖部; 
+            边缘: 0 汽车; 
+            衬垫: 20小卖部; 
             background-color: #f5f5f5;
         }
         h1 { 
-            color: #333; 
-            text-align: center;
+            颜色: #333; 
+            text-align: 中心;
         }
         .button-group { 
-            text-align: center; 
-            margin: 20px 0;
+            text-align: 中心; 
+            边缘: 20小卖部 0;
         }
-        button { 
-            padding: 12px 24px; 
-            margin: 0 10px; 
-            font-size: 16px; 
-            cursor: pointer; 
+        按钮 { 
+            衬垫: 12小卖部 24小卖部; 
+            边缘: 0 10小卖部; 
+            font-size: 16小卖部; 
+            光标: 指针; 
             background-color: #4CAF50; 
-            color: white; 
-            border: none; 
-            border-radius: 4px; 
-            transition: background-color 0.3s;
+            颜色: 白色; 
+            边界: 没有一个; 
+            border-radius: 4小卖部; 
+            过渡: background-color 0.3S;
         }
-        button:hover { 
+        按钮:盘旋 { 
             background-color: #45a049; 
         }
-        #output { 
-            white-space: pre; 
-            margin-top: 20px; 
-            border: 1px solid #ddd; 
-            padding: 15px; 
-            height: 400px; 
-            overflow-y: auto; 
-            background: white; 
-            border-radius: 4px;
-            font-size: 14px;
+        #输出 { 
+            white-space: 预; 
+            margin-top: 20小卖部; 
+            边界: 1小卖部 固体 #ddd; 
+            衬垫: 15小卖部; 
+            高度: 400小卖部; 
+            overflow-y: 汽车; 
+            背景: 白色; 
+            border-radius: 4小卖部;
+            font-size: 14小卖部;
             line-height: 1.5;
         }
-        .loading {
-            color: #666;
-            font-style: italic;
+        .附加工资 {
+            颜色: #666;
+            font-style: 斜体字;
         }
     </style>
 </head>
 <body>
-    <h1>PUBG Mobile BETA 版本监控</h1>
-    <div class="button-group">
-        <button onclick="runAction('test')">测试链接提取</button>
-        <button onclick="runAction('check')">检查版本更新</button>
-    </div>
-    <div id="output" class="loading">点击上方按钮开始操作...</div>
+    <h1>PUBG Mobile BETA版本监控</h1>
+    <级 班级="button-group">
+        <按钮 onclick="runAction('test')">测试链接提取</按钮>
+        <按钮 onclick="runAction('check')">检查版本更新</按钮>
+    </级>
+    <级 身份证="output" 班级="loading">点击上方按钮开始操作...</级>
 
-    <script>
-        // 替换为你的 Render 后端域名（已填入你的服务地址）
-        const BACKEND_URL = "https://pubg-beta-monitor.onrender.com";  
+    <剧本>
+        //替换为你的让你看你（你看你）
+        康斯特 BACKEND_URL = "https://pubg-beta-monitorvknv.onrender.com";  
 
-        function runAction(action) {
-            const outputDiv = document.getElementById('output');
-            outputDiv.textContent = "执行中...请稍候...";
+        功能 runAction(行动) {
+            康斯特 outputDiv = 文档.getElementById('output');
+            outputDiv.文本内容 = "执行中...请稍候...";
 
-            fetch(`${BACKEND_URL}/${action}`, { method: 'POST' })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`请求失败: ${response.status}`);
+            取来(`${BACKEND_URL}/${行动}`, { 方法: 'POST' })
+                .然后(反应 => {
+                    如果 (!反应.好的) {
+                        掷 新的 错误(请求失败：${反应.地位}`);
                     }
-                    return response.json();
+                    返回 反应.json支持JavaScript对象表示法（json）();
                 })
-                .then(data => {
-                    outputDiv.textContent = data.output;
+                .然后(数据 => {
+                    outputDiv.文本内容 = 数据.输出;
                 })
-                .catch(error => {
-                    outputDiv.textContent = `错误: ${error.message}\n请检查后端服务是否正常运行`;
+                .抓住(错误 => {
+                    outputDiv.文本内容 = 错误：${错误.消息}\n请检查后端服务是否正常运行;
                 });
         }
-    </script>
-</body>
-</html>
+    </剧本>
+</身体>
+</超文本标记语言>
